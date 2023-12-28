@@ -1,5 +1,7 @@
+import { ThemeProvider } from "./providers/Theme";
+
 function App() {
-	return <div>Init</div>;
+	return <ThemeProvider>App</ThemeProvider>;
 }
 
 export default App;
