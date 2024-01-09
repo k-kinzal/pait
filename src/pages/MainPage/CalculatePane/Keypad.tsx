@@ -68,7 +68,11 @@ export const Keypad = forwardRef(
 						9
 					</Key>
 				</Item>
-				<Item />
+				<Item sx={{ height: "200%" }}>
+					<BigKey size="large" color="primary" {...props}>
+						<SubdirectoryArrowLeft />
+					</BigKey>
+				</Item>
 				<Item>
 					<Key size="large" {...props}>
 						0
@@ -84,11 +88,6 @@ export const Keypad = forwardRef(
 						.
 					</Key>
 				</Item>
-				<Item sx={{ position: "relative", top: "-72px" }}>
-					<BigKey size="large" color="primary" {...props}>
-						<SubdirectoryArrowLeft />
-					</BigKey>
-				</Item>
 			</Grid>
 		);
 	},
@@ -96,7 +95,7 @@ export const Keypad = forwardRef(
 
 const Grid = forwardRef(
 	(
-		{ children, ...props }: BoxProps,
+		{ children, sx, ...props }: BoxProps,
 		ref: ForwardedRef<HTMLDivElement>,
 	): ReactElement => {
 		return (
@@ -106,8 +105,7 @@ const Grid = forwardRef(
 					gridAutoFlow: "row",
 					gridTemplateColumns: "repeat(4, 1fr)",
 					gridTemplateRows: "repeat(4, 72px)",
-					textAlign: "center",
-					textJustify: "center",
+					...sx,
 				}}
 				ref={ref}
 				{...props}
@@ -120,11 +118,11 @@ const Grid = forwardRef(
 
 const Item = forwardRef(
 	(
-		{ children, ...props }: BoxProps,
+		{ children, sx, ...props }: BoxProps,
 		ref: ForwardedRef<HTMLDivElement>,
 	): ReactElement => {
 		return (
-			<Box ref={ref} {...props}>
+			<Box sx={{display: "flex", alignItems: "center", justifyContent: "center", ...sx}} ref={ref} {...props}>
 				{children}
 			</Box>
 		);
