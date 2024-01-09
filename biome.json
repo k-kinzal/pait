@@ -3,6 +3,10 @@
   "files": {
     "ignore": ["**/dist"]
   },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
   "linter": {
     "rules": {
       "suspicious": {

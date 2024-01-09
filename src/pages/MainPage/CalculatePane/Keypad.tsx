@@ -10,87 +10,87 @@ import { ButtonProps } from "@mui/material/Button/Button";
 export interface Props extends ButtonProps {}
 
 export const Keypad = forwardRef(
-	({ ...props }: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
-		return (
-			<Grid ref={ref}>
-				<Item>
-					<Key size="large" {...props}>
-						1
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						2
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						3
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" color="secondary" {...props}>
-						<BackspaceIcon sx={{ marginLeft: "-3px" }} />
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						4
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						5
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						6
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" color="secondary" {...props}>
-						C
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						7
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						8
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						9
-					</Key>
-				</Item>
-				<Item sx={{ height: "200%" }}>
-					<BigKey size="large" color="primary" {...props}>
-						<SubdirectoryArrowLeft />
-					</BigKey>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						0
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						00
-					</Key>
-				</Item>
-				<Item>
-					<Key size="large" {...props}>
-						.
-					</Key>
-				</Item>
-			</Grid>
-		);
-	},
+  ({ ...props }: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+    return (
+      <Grid ref={ref}>
+        <Item>
+          <Key size="large" {...props}>
+            1
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            2
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            3
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" color="secondary" {...props}>
+            <BackspaceIcon sx={{ marginLeft: "-3px" }} />
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            4
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            5
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            6
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" color="secondary" {...props}>
+            C
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            7
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            8
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            9
+          </Key>
+        </Item>
+        <Item sx={{ height: "200%" }}>
+          <BigKey size="large" color="primary" {...props}>
+            <SubdirectoryArrowLeft />
+          </BigKey>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            0
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            00
+          </Key>
+        </Item>
+        <Item>
+          <Key size="large" {...props}>
+            .
+          </Key>
+        </Item>
+      </Grid>
+    );
+  },
 );
 
 const Grid = forwardRef(
