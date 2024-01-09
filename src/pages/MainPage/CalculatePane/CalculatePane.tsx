@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box, IconButton, Stack } from "@mui/material";
-import { Screen } from "./Screen.tsx";
-import { Keypad } from "./Keypad.tsx";
+import { Screen } from "./Screen";
+import { Keypad } from "./Keypad";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 
 export interface Props {}

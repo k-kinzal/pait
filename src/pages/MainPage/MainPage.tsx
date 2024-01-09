@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { CalculatePane } from "./CalculatePane/CalculatePane.tsx";
-import { DetailsPane } from "./DetailsPane/DetailsPane.tsx";
+import { CalculatePane } from "./CalculatePane/CalculatePane";
+import { DetailsPane } from "./DetailsPane/DetailsPane";
 
 export interface Props {}
 

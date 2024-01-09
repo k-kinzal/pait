@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box } from "@mui/material";
 import BackspaceIcon from "@mui/icons-material/Backspace";
-import { Key } from "./Keypad/Key.tsx";
-import { BigKey } from "./Keypad/BigKey.tsx";
+import { Key } from "./Keypad/Key";
+import { BigKey } from "./Keypad/BigKey";
 import { SubdirectoryArrowLeft } from "@mui/icons-material";
 import { BoxProps } from "@mui/material/Box/Box";
 import { ButtonProps } from "@mui/material/Button/Button";
