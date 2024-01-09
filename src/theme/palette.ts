@@ -1,5 +1,11 @@
 import { ThemeOptions } from "@mui/system";
 
+declare module "@mui/material/Button" {
+	interface ButtonPropsColorOverrides {
+		grey: true;
+	}
+}
+
 export type Color =
 	| "primary"
 	| "secondary"
@@ -31,6 +37,9 @@ export const themeLightPalette: ThemeOptions["palette"] = {
 		main: "#14f195",
 	},
 	grey: {
+		main: "#616161",
+		light: "#757575",
+		dark: "#424242",
 		"50": "#fafafa",
 		"100": "#f5f5f5",
 		"200": "#eeeeee",
@@ -62,6 +71,9 @@ export const themeLightPalette: ThemeOptions["palette"] = {
 		secondary: "#616161",
 		disabled: "#9e9e9e",
 	},
+	customColor: {
+		main: "#556cd6",
+	},
 };
 
 export const themeDarkPalette: ThemeOptions["palette"] = {
@@ -75,6 +87,9 @@ export const themeDarkPalette: ThemeOptions["palette"] = {
 		main: "#14f195",
 	},
 	grey: {
+		main: "#424242",
+		light: "#616161",
+		dark: "#212121",
 		"50": "#fafafa",
 		"100": "#f5f5f5",
 		"200": "#eeeeee",
