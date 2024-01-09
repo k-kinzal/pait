@@ -3,7 +3,7 @@ import { Button, Typography } from "@mui/material";
 import { ButtonProps } from "@mui/material/Button/Button";
 
 export interface Props extends ButtonProps {
-	children: number | string | ReactElement;
+  children: number | string | ReactElement;
 }
 
 export const Key = forwardRef(

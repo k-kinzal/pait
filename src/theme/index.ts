@@ -11,26 +11,26 @@ import { themeBreakpoints } from "./breakpoints";
 import { themeSpacing } from "./spacing";
 
 export const themes: { [key in PaletteMode]: ThemeOptions } = {
-	light: {
-		breakpoints: themeBreakpoints,
-		mixins: themeMixin,
-		components: themeComponents,
-		palette: themeLightPalette,
-		shadows: themeShadows,
-		spacing: themeSpacing,
-		transitions: themeTransitions,
-		typography: themeTypography,
-		zIndex: themeZIndex,
-	},
-	dark: {
-		breakpoints: themeBreakpoints,
-		mixins: themeMixin,
-		components: themeComponents,
-		palette: themeDarkPalette,
-		shadows: themeShadows,
-		spacing: themeSpacing,
-		transitions: themeTransitions,
-		typography: themeTypography,
-		zIndex: themeZIndex,
-	},
+  light: {
+    breakpoints: themeBreakpoints,
+    mixins: themeMixin,
+    components: themeComponents,
+    palette: themeLightPalette,
+    shadows: themeShadows,
+    spacing: themeSpacing,
+    transitions: themeTransitions,
+    typography: themeTypography,
+    zIndex: themeZIndex,
+  },
+  dark: {
+    breakpoints: themeBreakpoints,
+    mixins: themeMixin,
+    components: themeComponents,
+    palette: themeDarkPalette,
+    shadows: themeShadows,
+    spacing: themeSpacing,
+    transitions: themeTransitions,
+    typography: themeTypography,
+    zIndex: themeZIndex,
+  },
 };

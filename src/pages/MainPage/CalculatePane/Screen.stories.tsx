@@ -4,10 +4,10 @@ import { Screen } from "./Screen";
 type Story = StoryObj<void>;
 
 export default {
-	title: "Components/Screen",
-	component: Screen,
+  title: "Components/Screen",
+  component: Screen,
 };
 
 export const Default: Story = {
-	args: undefined,
+  args: undefined,
 };

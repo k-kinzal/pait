@@ -4,10 +4,10 @@ import { DetailsPane } from "./DetailsPane";
 type Story = StoryObj<void>;
 
 export default {
-	title: "Main/DetailsPane",
-	component: DetailsPane,
+  title: "Main/DetailsPane",
+  component: DetailsPane,
 };
 
 export const Default: Story = {
-	args: undefined,
+  args: undefined,
 };
