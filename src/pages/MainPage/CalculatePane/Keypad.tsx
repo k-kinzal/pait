@@ -1,121 +1,131 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import BackspaceIcon from "@mui/icons-material/Backspace";
+import { Key } from "./Keypad/Key.tsx";
+import { BigKey } from "./Keypad/BigKey.tsx";
+import { SubdirectoryArrowLeft } from "@mui/icons-material";
+import { BoxProps } from "@mui/material/Box/Box";
+import { ButtonProps } from "@mui/material/Button/Button";
 
-export interface Props {}
+export interface Props extends ButtonProps {}
 
 export const Keypad = forwardRef(
-	(_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+	({ ...props }: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+		return (
+			<Grid ref={ref}>
+				<Item>
+					<Key size="large" {...props}>
+						1
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						2
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						3
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" color="secondary" {...props}>
+						<BackspaceIcon sx={{ marginLeft: "-3px" }} />
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						4
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						5
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						6
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" color="secondary" {...props}>
+						C
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						7
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						8
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						9
+					</Key>
+				</Item>
+				<Item />
+				<Item>
+					<Key size="large" {...props}>
+						0
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						00
+					</Key>
+				</Item>
+				<Item>
+					<Key size="large" {...props}>
+						.
+					</Key>
+				</Item>
+				<Item sx={{ position: "relative", top: "-72px" }}>
+					<BigKey size="large" color="primary" {...props}>
+						<SubdirectoryArrowLeft />
+					</BigKey>
+				</Item>
+			</Grid>
+		);
+	},
+);
+
+const Grid = forwardRef(
+	(
+		{ children, ...props }: BoxProps,
+		ref: ForwardedRef<HTMLDivElement>,
+	): ReactElement => {
 		return (
 			<Box
-				py={4}
-				px={8}
 				sx={{
 					display: "grid",
 					gridAutoFlow: "row",
 					gridTemplateColumns: "repeat(4, 1fr)",
 					gridTemplateRows: "repeat(4, 72px)",
+					textAlign: "center",
+					textJustify: "center",
 				}}
 				ref={ref}
+				{...props}
 			>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							1
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							2
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							3
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "primary.dark" }}>
-						<BackspaceIcon />
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							4
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							5
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							6
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "primary.dark" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							C
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							7
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							8
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							9
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box />
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							0
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							00
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box sx={{ textAlign: "center", textJustify: "center" }}>
-					<IconButton size="large" sx={{ backgroundColor: "grey.900" }}>
-						<Typography width="32px" height="32px" variant="h5">
-							.
-						</Typography>
-					</IconButton>
-				</Box>
-				<Box />
+				{children}
+			</Box>
+		);
+	},
+);
+
+const Item = forwardRef(
+	(
+		{ children, ...props }: BoxProps,
+		ref: ForwardedRef<HTMLDivElement>,
+	): ReactElement => {
+		return (
+			<Box ref={ref} {...props}>
+				{children}
 			</Box>
 		);
 	},

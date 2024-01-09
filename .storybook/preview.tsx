@@ -26,6 +26,7 @@ const preview: Preview = {
             linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%),
             linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%)
           `,
+					backgroundColor: "white",
 					backgroundSize: "20px 20px",
 					backgroundPosition: "0 0, 10px 10px",
 				}}
