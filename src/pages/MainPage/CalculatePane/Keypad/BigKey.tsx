@@ -12,16 +12,11 @@ export const BigKey = forwardRef(
     ref: ForwardedRef<HTMLButtonElement>,
   ): ReactElement => {
 
-    const width = {
-      small: "32px",
-      medium: "48px",
-      large: "64px",
-    }[size ?? "medium"];
-
-    const height = {
-      small: "72px", // 32 x 2 + 8
-      medium: "104px", // 48 x 2 + 8
-      large: "136px", // 64 x 2 + 8
+    const [width, height] = {
+      // height = width * 2 + 8
+      small: ["32px", "72px"],
+      medium: ["48px", "104px"],
+      large: ["64px", "136px"],
     }[size ?? "medium"];
 
     return (
