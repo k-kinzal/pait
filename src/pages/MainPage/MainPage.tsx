@@ -14,7 +14,7 @@ export const MainPage = forwardRef(
         <Container maxWidth={"md"} sx={{ height: 1 }}>
           <Grid
             container
-            spacing={1}
+            spacing={2}
             width={1}
             height={1}
             columns={{ xs: 1, sm: 2 }}
@@ -24,17 +24,19 @@ export const MainPage = forwardRef(
           >
             <Grid xs={1} height="80%">
               <Box
+                minWidth="365px"
+                maxWidth="380px"
                 width={1}
                 height={1}
-                p={8}
+                p={5}
+                boxSizing="border-box"
                 sx={{
                   borderRadius: "16px",
                   backgroundColor: "black",
-                  overflow: "hidden",
                 }}
               >
                 <Box position="relative">
-                  <Box position="absolute" mt={-7} ml={-7}>
+                  <Box position="absolute" mt={-4} ml={-4}>
                     <IconButton
                       sx={{
                         width: "26px",
@@ -53,13 +55,15 @@ export const MainPage = forwardRef(
             </Grid>
             <Grid xs={1} height="80%">
               <Box
+                minWidth="365px"
+                maxWidth="380px"
                 width={1}
                 height={1}
-                p={4}
+                p={5}
+                boxSizing="border-box"
                 sx={{
                   borderRadius: "16px",
                   backgroundColor: "black",
-                  overflow: "hidden",
                 }}
               >
                 <DetailsPane />

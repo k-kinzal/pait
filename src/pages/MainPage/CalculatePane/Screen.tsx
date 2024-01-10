@@ -28,10 +28,10 @@ export const Screen = forwardRef(
     }
 
     const fontSize = ((len) => {
-      if (len < 10) {
+      if (len < 9) {
         return "xxx-large";
       }
-      if (len < 15) {
+      if (len < 13) {
         return "xx-large";
       }
       return "x-large";
@@ -48,7 +48,12 @@ export const Screen = forwardRef(
         ref={ref}
         {...props}
       >
-        <Typography align="right" fontSize={fontSize} lineHeight={1} ref={ref}>
+        <Typography
+          align="right"
+          fontSize={fontSize}
+          lineHeight={1}
+          ref={ref}
+        >
           {locale_format(amount, "en-US")}
         </Typography>
         <Typography variant="body1" align="right" ref={ref}>
