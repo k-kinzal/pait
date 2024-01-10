@@ -8,10 +8,9 @@ export interface Props extends ButtonProps {
 
 export const BigKey = forwardRef(
   (
-    { children, size, ...props }: Props,
+    { children, size, sx, ...props }: Props,
     ref: ForwardedRef<HTMLButtonElement>,
   ): ReactElement => {
-
     const [width, height] = {
       // height = width * 2 + 8
       small: ["32px", "72px"],
@@ -32,11 +31,14 @@ export const BigKey = forwardRef(
           borderRadius: "999px",
           color: "white",
           letterSpacing: "0.1em",
+          ...sx,
         }}
         ref={ref}
         {...props}
       >
-        <Typography fontWeight="bold" fontSize="small">{children}</Typography>
+        <Typography fontWeight="bold" fontSize="small">
+          {children}
+        </Typography>
       </Button>
     );
   },

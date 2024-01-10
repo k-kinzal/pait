@@ -94,37 +94,46 @@ export const Keypad = forwardRef(
 );
 
 const Grid = forwardRef(
-	(
-		{ children, sx, ...props }: BoxProps,
-		ref: ForwardedRef<HTMLDivElement>,
-	): ReactElement => {
-		return (
-			<Box
-				sx={{
-					display: "grid",
-					gridAutoFlow: "row",
-					gridTemplateColumns: "repeat(4, 1fr)",
-					gridTemplateRows: "repeat(4, 72px)",
-					...sx,
-				}}
-				ref={ref}
-				{...props}
-			>
-				{children}
-			</Box>
-		);
-	},
+  (
+    { children, sx, ...props }: BoxProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    return (
+      <Box
+        sx={{
+          display: "grid",
+          gridAutoFlow: "row",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateRows: "repeat(4, 72px)",
+          ...sx,
+        }}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  },
 );
 
 const Item = forwardRef(
-	(
-		{ children, sx, ...props }: BoxProps,
-		ref: ForwardedRef<HTMLDivElement>,
-	): ReactElement => {
-		return (
-			<Box sx={{display: "flex", alignItems: "center", justifyContent: "center", ...sx}} ref={ref} {...props}>
-				{children}
-			</Box>
-		);
-	},
+  (
+    { children, sx, ...props }: BoxProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          ...sx,
+        }}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  },
 );
