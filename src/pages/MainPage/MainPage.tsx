@@ -33,6 +33,7 @@ export const MainPage = forwardRef(
                 sx={{
                   borderRadius: "16px",
                   backgroundColor: "black",
+                  overflow: "hidden",
                 }}
               >
                 <Box position="relative">
@@ -64,6 +65,7 @@ export const MainPage = forwardRef(
                 sx={{
                   borderRadius: "16px",
                   backgroundColor: "black",
+                  overflow: "hidden",
                 }}
               >
                 <DetailsPane />
