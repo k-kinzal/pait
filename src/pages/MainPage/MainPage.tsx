@@ -1,58 +1,68 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, IconButton } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { CalculatePane } from "./CalculatePane/CalculatePane";
 import { DetailsPane } from "./DetailsPane/DetailsPane";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 
 export interface Props {}
 
 export const MainPage = forwardRef(
   (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
     return (
-      <Box
-        width={1}
-        height={1}
-        py={8}
-        sx={{
-          display: "flex",
-          alignContent: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}
-        ref={ref}
-      >
-        <Container maxWidth={"md"}>
+      <Box width={1} height={1} ref={ref}>
+        <Container maxWidth={"md"} sx={{ height: 1 }}>
           <Grid
             container
-            spacing={1}
+            spacing={2}
             width={1}
             height={1}
             columns={{ xs: 1, sm: 2 }}
+            sx={{
+              placeItems: "center",
+            }}
           >
-            <Grid xs={1} height={1}>
+            <Grid xs={1} height="80%">
               <Box
+                minWidth="365px"
+                maxWidth="380px"
                 width={1}
                 height={1}
+                p={5}
+                boxSizing="border-box"
                 sx={{
-                  display: "flex",
-                  alignContent: "center",
-                  justifyContent: "center",
                   borderRadius: "16px",
                   backgroundColor: "black",
                   overflow: "hidden",
                 }}
               >
-                <CalculatePane />
+                <Box position="relative">
+                  <Box position="absolute" mt={-4} ml={-4}>
+                    <IconButton
+                      sx={{
+                        width: "26px",
+                        height: "26px",
+                        minHeight: "26px",
+                        backgroundColor: "black",
+                        color: "grey.500",
+                      }}
+                    >
+                      <LockOpenIcon />
+                    </IconButton>
+                  </Box>
+                  <CalculatePane />
+                </Box>
               </Box>
             </Grid>
-            <Grid xs={1} height={1}>
+            <Grid xs={1} height="80%">
               <Box
+                minWidth="365px"
+                maxWidth="380px"
                 width={1}
                 height={1}
+                p={5}
+                boxSizing="border-box"
                 sx={{
-                  display: "flex",
-                  alignContent: "center",
-                  justifyContent: "center",
                   borderRadius: "16px",
                   backgroundColor: "black",
                   overflow: "hidden",

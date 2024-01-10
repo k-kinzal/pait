@@ -6,6 +6,15 @@ export interface Props extends StackProps {
   currency: string;
 }
 
+function locale_format(n: string, locales: string): string {
+  const [_, decimal] = n.split(".");
+  const decimalLength = decimal?.length ?? 0;
+  return Number(n).toLocaleString(locales, {
+    minimumFractionDigits: decimalLength,
+    maximumFractionDigits: decimalLength,
+  });
+}
+
 export const Screen = forwardRef(
   (
     { amount, currency, sx, ...props }: Props,
@@ -19,10 +28,13 @@ export const Screen = forwardRef(
     }
 
     const fontSize = ((len) => {
-      if (len < 12) {
+      if (len < 9) {
         return "xxx-large";
       }
-      return "xx-large";
+      if (len < 13) {
+        return "xx-large";
+      }
+      return "x-large";
     })(amount.length);
 
     return (
@@ -36,8 +48,13 @@ export const Screen = forwardRef(
         ref={ref}
         {...props}
       >
-        <Typography align="right" fontSize={fontSize} lineHeight={1} ref={ref}>
-          {amount}
+        <Typography
+          align="right"
+          fontSize={fontSize}
+          lineHeight={1}
+          ref={ref}
+        >
+          {locale_format(amount, "en-US")}
         </Typography>
         <Typography variant="body1" align="right" ref={ref}>
           {currency}

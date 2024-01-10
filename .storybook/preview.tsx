@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { ThemeProvider } from "../src/providers/Theme";
 import "../src/index.css";
+import {CssBaseline} from "@mui/material";
 
 const preview: Preview = {
 	parameters: {
@@ -32,6 +33,7 @@ const preview: Preview = {
 				}}
 			>
 				<ThemeProvider scheme={ctx.globals.backgrounds?.value === '#333333' ? 'dark' : 'light'}>
+					<CssBaseline />
 					<Story />
 				</ThemeProvider>
 			</div>
