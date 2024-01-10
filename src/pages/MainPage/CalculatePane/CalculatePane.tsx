@@ -8,6 +8,9 @@ export interface Props {}
 
 export const CalculatePane = forwardRef(
   (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+    const amount = 12000;
+    const currency = "USD";
+
     return (
       <Box position="relative">
         <Box position="absolute" top={14} left={-20}>
@@ -25,7 +28,13 @@ export const CalculatePane = forwardRef(
         </Box>
         <Stack spacing={0} ref={ref}>
           <Box sx={{ width: 1 }}>
-            <Screen />
+            <Screen
+              amount={amount.toLocaleString("USD", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 20,
+              })}
+              currency={currency}
+            />
           </Box>
           <Box sx={{ width: 1 }}>
             <Keypad />

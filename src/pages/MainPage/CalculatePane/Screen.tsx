@@ -1,28 +1,48 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
-import { Box, Typography } from "@mui/material";
+import { Stack, StackProps, Typography } from "@mui/material";
 
-export interface Props {}
+export interface Props extends StackProps {
+  amount: string;
+  currency: string;
+}
 
 export const Screen = forwardRef(
-  (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+  (
+    { amount, currency, sx, ...props }: Props,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    if (amount.length > 15) {
+      throw new Error("Amount too long");
+    }
+    if (!/[0-9.]/.test(amount)) {
+      throw new Error("Invalid amount");
+    }
+
+    const fontSize = ((len) => {
+      if (len < 12) {
+        return "xxx-large";
+      }
+      return "xx-large";
+    })(amount.length);
+
     return (
-      <Box
-        pt={10}
-        px={10}
+      <Stack
         sx={{
           width: 1,
-          display: "flex",
-          flexDirection: "column",
+          height: "96px",
           justifyContent: "flex-end",
+          ...sx,
         }}
+        ref={ref}
+        {...props}
       >
-        <Typography variant="h2" align="right" ref={ref}>
-          12,000
+        <Typography align="right" fontSize={fontSize} lineHeight={1} ref={ref}>
+          {amount}
         </Typography>
         <Typography variant="body1" align="right" ref={ref}>
-          USD
+          {currency}
         </Typography>
-      </Box>
+      </Stack>
     );
   },
 );
