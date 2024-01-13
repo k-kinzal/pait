@@ -97,7 +97,9 @@ export const Layout = forwardRef(
     return (
       <Box width={1} height={1} sx={{ display: "grid", placeItems: "center" }}>
         <Stack width={1} spacing={2} ref={ref}>
-          <Box width={1} px={2}>{upper}</Box>
+          <Box width={1} px={2}>
+            {upper}
+          </Box>
           <Box width={1}>{lower}</Box>
         </Stack>
       </Box>
