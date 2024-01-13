@@ -48,12 +48,7 @@ export const Screen = forwardRef(
         ref={ref}
         {...props}
       >
-        <Typography
-          align="right"
-          fontSize={fontSize}
-          lineHeight={1}
-          ref={ref}
-        >
+        <Typography align="right" fontSize={fontSize} lineHeight={1} ref={ref}>
           {locale_format(amount, "en-US")}
         </Typography>
         <Typography variant="body1" align="right" ref={ref}>

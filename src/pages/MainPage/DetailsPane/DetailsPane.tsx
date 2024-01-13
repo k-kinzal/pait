@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
+import { SolanaPayTransferRequestQRCode } from "./QRCode/SolanaPayTransferRequestQRCode.tsx";
 
 export interface Props {}
 
@@ -16,12 +17,7 @@ export const DetailsPane = forwardRef(
     return (
       <Stack spacing={0} ref={ref} pt={10}>
         <Box sx={{ width: 1, textAlign: "center" }} p={2}>
-          <img
-            width="256px"
-            height="256px"
-            src="https://user-images.githubusercontent.com/64693573/167138242-5f9c2efd-de9a-4474-86b2-baec9d21905f.png"
-            alt="qr"
-          />
+          <SolanaPayTransferRequestQRCode recipient="2jqa57XHU7weXF867pvfJfzo6jBBwk7Xwd2MX1MP8Jub" />
         </Box>
         <Box sx={{ width: 1 }} p={2}>
           <Autocomplete
