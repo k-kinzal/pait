@@ -10,7 +10,7 @@ declare module "@mui/material" {
   interface TypeBackground {
     default: string;
     inverted: string;
-    paper: string;
+    alpha: string;
   }
 }
 
@@ -74,6 +74,7 @@ export const themeLightPalette: ThemeOptions["palette"] = {
   background: {
     default: "#fafafa",
     inverted: "#212121",
+    alpha: "rgba(255, 255, 255, 0.5)",
   },
   text: {
     primary: "#212121",
@@ -125,6 +126,7 @@ export const themeDarkPalette: ThemeOptions["palette"] = {
   background: {
     default: "#212121",
     inverted: "#fafafa",
+    alpha: "rgba(0, 0, 0, 0.5)",
   },
   text: {
     primary: "#fafafa",

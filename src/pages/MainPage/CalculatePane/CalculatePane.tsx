@@ -5,9 +5,10 @@ import {
   useState,
   MouseEvent,
 } from "react";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, StackProps } from "@mui/material";
 import { Screen } from "./Screen";
 import { Keypad } from "./Keypad";
+import { BoxProps } from "@mui/material/Box/Box";
 
 export interface Props {}
 
@@ -75,33 +76,43 @@ export const CalculatePane = forwardRef(
     };
 
     return (
-      <Layout
-        upper={<Screen amount={amount} currency={currency} />}
-        lower={<Keypad onClick={onClick} />}
-        ref={ref}
-      />
+      <Layout ref={ref}>
+        <Content>
+          <Screen amount={amount} currency={currency} px={2} />
+        </Content>
+        <Content>
+          <Keypad onClick={onClick} />
+        </Content>
+      </Layout>
     );
   },
 );
 
-interface LayoutProps {
-  upper: ReactElement;
-  lower: ReactElement;
+interface LayoutProps extends StackProps {
+  children: ReactElement[];
 }
 
 const Layout = forwardRef(
   (
-    { upper, lower }: LayoutProps,
+    { children, ...props }: LayoutProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): ReactElement => {
     return (
-      <Box width={1} height={1} sx={{ display: "grid", placeItems: "center" }}>
-        <Stack width={1} spacing={2} ref={ref}>
-          <Box width={1} px={2}>
-            {upper}
-          </Box>
-          <Box width={1}>{lower}</Box>
-        </Stack>
+      <Stack spacing={2} width={1} height={1} ref={ref} {...props}>
+        {children}
+      </Stack>
+    );
+  },
+);
+
+const Content = forwardRef(
+  (
+    { children, ...props }: BoxProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    return (
+      <Box width={1} ref={ref} {...props}>
+        {children}
       </Box>
     );
   },
