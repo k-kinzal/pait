@@ -4,7 +4,7 @@ import { MainPage } from "./MainPage";
 type Story = StoryObj<void>;
 
 export default {
-  title: "Main/MainPage",
+  title: "Global/MainPage",
   component: MainPage,
 };
 

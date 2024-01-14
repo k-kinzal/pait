@@ -126,11 +126,7 @@ const LockIconButton = forwardRef(
   ): ReactElement => {
     return (
       <IconButton
-        sx={{
-          width: "32px",
-          height: "32px",
-          minHeight: "26px",
-        }}
+        size="small"
         ref={ref}
         {...props}
       >
