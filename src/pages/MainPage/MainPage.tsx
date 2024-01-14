@@ -91,7 +91,7 @@ const Content = forwardRef(
         boxSizing="border-box"
         sx={{
           borderRadius: "16px",
-          backgroundColor: "black",
+          backgroundColor: "background.strongly",
           overflow: "hidden",
         }}
         ref={ref}
@@ -129,7 +129,7 @@ const LockIconButton = forwardRef(
           width: "26px",
           height: "26px",
           minHeight: "26px",
-          backgroundColor: "black",
+          backgroundColor: "background.strongly",
           color: "grey.500",
         }}
         ref={ref}
