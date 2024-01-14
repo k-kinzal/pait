@@ -6,6 +6,14 @@ declare module "@mui/material/Button" {
   }
 }
 
+declare module "@mui/material" {
+  interface TypeBackground {
+    default: string;
+    inverted: string;
+    paper: string;
+  }
+}
+
 export type Color =
   | "primary"
   | "secondary"
@@ -65,6 +73,7 @@ export const themeLightPalette: ThemeOptions["palette"] = {
   },
   background: {
     default: "#fafafa",
+    inverted: "#212121",
   },
   text: {
     primary: "#212121",
@@ -115,6 +124,7 @@ export const themeDarkPalette: ThemeOptions["palette"] = {
   },
   background: {
     default: "#212121",
+    inverted: "#fafafa",
   },
   text: {
     primary: "#fafafa",

@@ -65,7 +65,9 @@ export const QRCode = forwardRef(
     const qrCode = new QRCodeStyling(qrCodeOption);
     useEffect(() => {
       if (!ref) {
-      } else if (typeof ref === "function") {
+        return;
+      }
+      if (typeof ref === "function") {
         ref(r.current);
       } else if ("current" in ref) {
         ref.current = r.current;

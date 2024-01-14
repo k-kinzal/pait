@@ -1,6 +1,6 @@
-import { ThemeProvider } from "./providers/Theme.tsx";
+import { ThemeProvider } from "./providers/Theme";
 import { CssBaseline } from "@mui/material";
-import { MainPage } from "./pages/MainPage/MainPage.tsx";
+import { MainPage } from "./pages/MainPage/MainPage";
 
 function App() {
   return (

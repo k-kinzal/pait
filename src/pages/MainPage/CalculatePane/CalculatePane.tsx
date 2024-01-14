@@ -89,7 +89,7 @@ interface LayoutProps {
   lower: ReactElement;
 }
 
-export const Layout = forwardRef(
+const Layout = forwardRef(
   (
     { upper, lower }: LayoutProps,
     ref: ForwardedRef<HTMLDivElement>,

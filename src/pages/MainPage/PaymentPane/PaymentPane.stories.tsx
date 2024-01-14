@@ -1,11 +1,11 @@
 import { StoryObj } from "@storybook/react";
-import { DetailsPane } from "./DetailsPane";
+import { PaymentPane } from "./PaymentPane";
 
 type Story = StoryObj<void>;
 
 export default {
-  title: "Main/DetailsPane",
-  component: DetailsPane,
+  title: "Main/PaymentPane",
+  component: PaymentPane,
 };
 
 export const Default: Story = {
