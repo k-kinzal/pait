@@ -1,5 +1,5 @@
 import { StoryObj } from "@storybook/react";
-import { CurrencySelect, Props } from "./CurrencySelect.tsx";
+import { CurrencySelect, Props } from "./CurrencySelect";
 
 type Story = StoryObj<Props>;
 

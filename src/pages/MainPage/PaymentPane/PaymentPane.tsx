@@ -5,10 +5,10 @@ import {
   ReactElement,
 } from "react";
 import { Box, Stack, StackProps } from "@mui/material";
-import { QRCodePane } from "./QRCode/QRCodePane.tsx";
+import { QRCodePane } from "./QRCode/QRCodePane";
 import { BoxProps } from "@mui/material/Box/Box";
-import { CurrencySelect } from "./CurrencySelect.tsx";
-import { DetailsTable } from "./DetailsTable.tsx";
+import { CurrencySelect } from "./CurrencySelect";
+import { DetailsTable } from "./DetailsTable";
 
 export interface Props {}
 

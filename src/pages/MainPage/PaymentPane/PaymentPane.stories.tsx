@@ -1,5 +1,5 @@
 import { StoryObj } from "@storybook/react";
-import { PaymentPane } from "./PaymentPane.tsx";
+import { PaymentPane } from "./PaymentPane";
 
 type Story = StoryObj<void>;
 

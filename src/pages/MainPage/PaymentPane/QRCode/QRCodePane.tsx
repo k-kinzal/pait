@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box, useTheme } from "@mui/material";
-import { SolanaPayTransferRequestQRCode } from "./SolanaPayTransferRequestQRCode.tsx";
+import { SolanaPayTransferRequestQRCode } from "./SolanaPayTransferRequestQRCode";
 import { BoxProps } from "@mui/material/Box/Box";
 
 export interface Props extends BoxProps {
