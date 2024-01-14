@@ -24,6 +24,10 @@ export const CurrencySelect = forwardRef(
     { currencies, ...props }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ): ReactElement => {
+    if (currencies.length === 0) {
+      throw new Error("currencies must not be empty");
+    }
+
     return (
       <Autocomplete
         options={currencies}
