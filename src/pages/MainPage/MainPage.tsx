@@ -2,7 +2,7 @@ import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box, Container, IconButton } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { CalculatePane } from "./CalculatePane/CalculatePane";
-import { DetailsPane } from "./DetailsPane/DetailsPane";
+import { PaymentPane } from "./PaymentPane/PaymentPane.tsx";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 
 export interface Props {}
@@ -68,7 +68,7 @@ export const MainPage = forwardRef(
                   overflow: "hidden",
                 }}
               >
-                <DetailsPane />
+                <PaymentPane />
               </Box>
             </Grid>
           </Grid>

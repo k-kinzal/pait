@@ -14,8 +14,8 @@ export default {
 export const Default: Story = {
   args: {
     recipient: "2jqa57XHU7weXF867pvfJfzo6jBBwk7Xwd2MX1MP8Jub",
-  }
-}
+  },
+};
 
 export const Designed: Story = {
   args: {
