@@ -1,14 +1,10 @@
-import { ThemeProvider } from "./providers/Theme";
-import { CssBaseline } from "@mui/material";
 import { MainPage } from "./pages/MainPage/MainPage";
+import { Providers } from "./providers/Providers";
 
-function App() {
+export function App() {
   return (
-    <ThemeProvider>
-      <CssBaseline />
+    <Providers>
       <MainPage />
-    </ThemeProvider>
+    </Providers>
   );
 }
-
-export default App;

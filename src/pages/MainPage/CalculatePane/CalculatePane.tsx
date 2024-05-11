@@ -9,15 +9,21 @@ import { Box, Stack, StackProps } from "@mui/material";
 import { Screen } from "./Screen";
 import { Keypad } from "./Keypad";
 import { BoxProps } from "@mui/material/Box/Box";
+import { useConfig } from "../../../providers/ConfigProvider";
 
-export interface Props {}
+export interface Props {
+  onChangeAmount?: (amount: number) => void | Promise<void>;
+}
 
 export const CalculatePane = forwardRef(
-  (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+  (
+    { onChangeAmount }: Props,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    const { recipient } = useConfig();
     const [amount, setAmount] = useState("0");
-    const [currency] = useState("USD");
 
-    const onClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const onClick = async (e: MouseEvent<HTMLButtonElement>) => {
       const input = e.currentTarget.dataset.keypad;
       switch (input) {
         case "0":
@@ -61,6 +67,12 @@ export const CalculatePane = forwardRef(
           break;
         case "C":
           setAmount("0");
+          if (onChangeAmount) {
+            const result = onChangeAmount(0);
+            if (result instanceof Promise) {
+              await result;
+            }
+          }
           break;
         case "BS":
           setAmount((prev) => {
@@ -70,6 +82,14 @@ export const CalculatePane = forwardRef(
             return prev.slice(0, -1);
           });
           break;
+        case "EN":
+          if (onChangeAmount) {
+            const result = onChangeAmount(Number(amount));
+            if (result instanceof Promise) {
+              await result;
+            }
+          }
+          break;
         default:
           throw new Error(`Invalid input ${input}`);
       }
@@ -78,7 +98,7 @@ export const CalculatePane = forwardRef(
     return (
       <Layout ref={ref}>
         <Content>
-          <Screen amount={amount} currency={currency} px={2} />
+          <Screen amount={amount} currency={recipient.currency} px={2} />
         </Content>
         <Content>
           <Keypad onClick={onClick} />

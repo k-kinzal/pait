@@ -1,11 +1,6 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Stack, StackProps, Typography } from "@mui/material";
 
-export interface Props extends StackProps {
-  amount: string;
-  currency: string;
-}
-
 function locale_format(n: string, locales: string): string {
   const [_, decimal] = n.split(".");
   const decimalLength = decimal?.length ?? 0;
@@ -13,6 +8,11 @@ function locale_format(n: string, locales: string): string {
     minimumFractionDigits: decimalLength,
     maximumFractionDigits: decimalLength,
   });
+}
+
+export interface Props extends StackProps {
+  amount: string;
+  currency: string;
 }
 
 export const Screen = forwardRef(

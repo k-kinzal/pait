@@ -3,43 +3,77 @@ import {
   forwardRef,
   PropsWithChildren,
   ReactElement,
+  Suspense,
+  useState,
 } from "react";
 import { Box, Stack, StackProps } from "@mui/material";
 import { QRCodePane } from "./QRCode/QRCodePane";
 import { BoxProps } from "@mui/material/Box/Box";
-import { CurrencySelect } from "./CurrencySelect";
+import { TokenSelect } from "./TokenSelect";
 import { DetailsTable } from "./DetailsTable";
+import { ErrorBoundary } from "react-error-boundary";
+import { Token, useConfig } from "../../../providers/ConfigProvider";
+import { usePriceQuery } from "../../../hooks/usePriceQuery";
 
-export interface Props {}
+export interface Props {
+  recipientAmount: number;
+}
 
 export const PaymentPane = forwardRef(
-  (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
-    const currencies = [
-      {
-        code: "Solana",
-        label: "SOL",
-        icon: "https://cryptologos.cc/logos/solana-sol-logo.png",
-      },
-    ];
+  (props: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+    return (
+      <ErrorBoundary fallback={<Fallback />}>
+        <Suspense fallback={<Fallback />}>
+          <Pane ref={ref} {...props} />
+        </Suspense>
+      </ErrorBoundary>
+    );
+  },
+);
+
+const Pane = forwardRef(
+  (
+    { recipientAmount }: Props,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    const { recipient, tokens, paymentMethod } = useConfig();
+    const [token, setToken] = useState<Token>(tokens[0]);
+
+    const { data } = usePriceQuery(token.feed, {
+      refetchInterval: 10000,
+    });
+
+    const onChangeToken = async (_: unknown, currency: Token) => {
+      return setToken(currency);
+    };
 
     return (
       <Layout ref={ref}>
         <Content>
-          <CurrencySelect currencies={currencies} size="small" />
+          <TokenSelect
+            currencies={tokens}
+            size="small"
+            onChange={onChangeToken}
+          />
         </Content>
         <Content>
           <QRCodePane
-            recipient="2jqa57XHU7weXF867pvfJfzo6jBBwk7Xwd2MX1MP8Jub"
-            amount={112}
+            paymentMethod={paymentMethod}
+            recipient={recipient.address}
+            amount={recipientAmount / (data?.price || 1)}
+            splToken={token.address}
           />
         </Content>
         <Content>
           <DetailsTable
-            recipientCurrency={"USD"}
-            senderCurrency={"SOL"}
-            exchangeRate={1.12}
-            transactionFee={0.00000034}
-            totalAmount={112.00000034}
+            feeCurrency={"SOL"}
+            recipientCurrency={recipient.currency}
+            senderCurrency={token.code}
+            exchangeRate={Number((data?.price || 1).toFixed(8))}
+            transactionFee={0.000005}
+            totalAmount={Number(
+              (recipientAmount / (data?.price || 1) + 0.000005).toFixed(8),
+            )}
           />
         </Content>
       </Layout>
@@ -74,5 +108,11 @@ const Content = forwardRef(
         {children}
       </Box>
     );
+  },
+);
+
+const Fallback = forwardRef(
+  (_, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+    return <div ref={ref}>Fallback</div>;
   },
 );

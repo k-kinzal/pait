@@ -1,25 +1,20 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Autocomplete, AutocompleteProps, TextField } from "@mui/material";
-
-export interface Currency {
-  code: string;
-  label: string;
-  icon: string;
-}
+import { Token } from "../../../providers/ConfigProvider";
 
 export interface Props
   extends Omit<
-    AutocompleteProps<Currency, false, true, false>,
+    AutocompleteProps<Token, false, true, false>,
     | "options"
     | "autoHighlight"
     | "disableClearable"
     | "getOptionLabel"
     | "renderInput"
   > {
-  currencies: Currency[];
+  currencies: Token[];
 }
 
-export const CurrencySelect = forwardRef(
+export const TokenSelect = forwardRef(
   (
     { currencies, ...props }: Props,
     ref: ForwardedRef<HTMLDivElement>,
@@ -34,12 +29,12 @@ export const CurrencySelect = forwardRef(
         defaultValue={currencies[0]}
         autoHighlight
         disableClearable={true}
-        getOptionLabel={(option) => option.label}
+        getOptionLabel={(option) => `${option.label} (${option.code})`}
         renderInput={(params) => (
           <TextField
             {...params}
             variant="standard"
-            label="Currency"
+            label="Token"
             inputProps={{
               ...params.inputProps,
               style: {
