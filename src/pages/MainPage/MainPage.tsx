@@ -23,7 +23,7 @@ export const MainPage = forwardRef(
 
     return (
       <Layout ref={ref}>
-        <Content header={<LockIconButton locked={locked} onClick={onChange} />}>
+        <Content header={<LockIconButton onClick={onChange} />}>
           <CalculatePane onChangeAmount={changeAmount} />
         </Content>
         <Content>
