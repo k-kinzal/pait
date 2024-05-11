@@ -10,4 +10,5 @@ export default {
 
 export const Default: Story = {
   args: undefined,
+  render: () => <MainPage />,
 };

@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { ThemeProvider } from "../src/providers/Theme";
+import { ThemeProvider } from "../src/providers/ThemeProvider";
 import "../src/index.css";
 import {CssBaseline} from "@mui/material";
 

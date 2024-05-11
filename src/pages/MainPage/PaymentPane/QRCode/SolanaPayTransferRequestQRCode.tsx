@@ -1,8 +1,9 @@
 import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Props as QRCodeProps, QRCode } from "./QRCode";
+import { PublicKey } from "@solana/web3.js";
 
 export interface Props extends Omit<QRCodeProps, "data"> {
-  recipient: string;
+  recipient: PublicKey;
   amount?: number;
   splToken?: string;
   reference?: string;

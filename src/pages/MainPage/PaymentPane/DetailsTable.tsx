@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 export interface Props extends Omit<TableProps, "children"> {
+  feeCurrency: string;
   recipientCurrency: string;
   senderCurrency: string;
   exchangeRate: number;
@@ -19,6 +20,7 @@ export interface Props extends Omit<TableProps, "children"> {
 export const DetailsTable = forwardRef(
   (
     {
+      feeCurrency,
       recipientCurrency,
       senderCurrency,
       exchangeRate,
@@ -40,7 +42,7 @@ export const DetailsTable = forwardRef(
           <TableRow>
             <LabelCell>Fee:</LabelCell>
             <NumberCell>
-              {transactionFee} {senderCurrency}
+              {transactionFee} {feeCurrency}
             </NumberCell>
           </TableRow>
           <TableRow>

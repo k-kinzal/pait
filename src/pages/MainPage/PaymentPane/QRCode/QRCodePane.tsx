@@ -2,21 +2,40 @@ import { ForwardedRef, forwardRef, ReactElement } from "react";
 import { Box, useTheme } from "@mui/material";
 import { SolanaPayTransferRequestQRCode } from "./SolanaPayTransferRequestQRCode";
 import { BoxProps } from "@mui/material/Box/Box";
+import { PublicKey } from "@solana/web3.js";
+import { PaymentMethod } from "../../../../providers/ConfigProvider";
 
 export interface Props extends BoxProps {
-  recipient: string;
+  paymentMethod: PaymentMethod;
+  recipient: PublicKey;
   amount?: number;
 }
 
 export const QRCodePane = forwardRef(
   (
-    { recipient, amount, ...props }: Props,
+    { paymentMethod, recipient, amount, ...props }: Props,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): ReactElement => {
+    return (
+      <Box sx={{ width: 1, textAlign: "center" }} ref={ref} {...props}>
+        <QRCode
+          recipient={recipient}
+          amount={amount}
+          paymentMethod={paymentMethod}
+        />
+      </Box>
+    );
+  },
+);
+
+const QRCode = forwardRef(
+  (
+    { paymentMethod, recipient, amount }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ): ReactElement => {
     const theme = useTheme();
-
-    return (
-      <Box sx={{ width: 1, textAlign: "center" }} ref={ref} {...props}>
+    if (paymentMethod === PaymentMethod.SolanaPayTransferRequest) {
+      return (
         <SolanaPayTransferRequestQRCode
           recipient={recipient}
           amount={amount}
@@ -25,8 +44,10 @@ export const QRCodePane = forwardRef(
           dotsOptions={{
             color: theme.palette.background.inverted,
           }}
+          ref={ref}
         />
-      </Box>
-    );
+      );
+    }
+    throw new Error("Unsupported payment method");
   },
 );

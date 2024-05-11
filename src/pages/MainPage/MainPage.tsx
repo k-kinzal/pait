@@ -1,27 +1,33 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  PropsWithChildren,
-  ReactElement,
-} from "react";
+import {ForwardedRef, forwardRef, PropsWithChildren, ReactElement, useState} from "react";
 import { Box, Container, IconButton, IconButtonProps } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { CalculatePane } from "./CalculatePane/CalculatePane";
 import { PaymentPane } from "./PaymentPane/PaymentPane";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { BoxProps } from "@mui/material/Box/Box";
+import { BoxProps } from "@mui/material/Box/Box";;
 
 export interface Props {}
 
 export const MainPage = forwardRef(
   (_: Props, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
+    const [locked, updateLocked] = useState(false);
+    const [amount, setAmount] = useState(0);
+
+    const onChange = async () => {
+      return updateLocked(!locked);
+    };
+
+    const changeAmount = (amount: number) => {
+      return setAmount(amount);
+    };
+
     return (
       <Layout ref={ref}>
-        <Content header={<LockIconButton />}>
-          <CalculatePane />
+        <Content header={<LockIconButton locked={locked} onClick={onChange} />}>
+          <CalculatePane onChangeAmount={changeAmount} />
         </Content>
         <Content>
-          <PaymentPane />
+          <PaymentPane recipientAmount={amount} />
         </Content>
       </Layout>
     );
