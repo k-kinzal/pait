@@ -5,7 +5,7 @@ import { PublicKey } from "@solana/web3.js";
 export interface Props extends Omit<QRCodeProps, "data"> {
   recipient: PublicKey;
   amount?: number;
-  splToken?: string;
+  splToken?: PublicKey;
   reference?: string;
   label?: string;
   message?: string;
@@ -31,7 +31,7 @@ export const SolanaPayTransferRequestQRCode = forwardRef(
       url.searchParams.append("amount", amount.toFixed(9));
     }
     if (splToken) {
-      url.searchParams.append("spl-token", splToken);
+      url.searchParams.append("spl-token", splToken.toString());
     }
     if (reference) {
       url.searchParams.append("reference", reference);
@@ -45,7 +45,7 @@ export const SolanaPayTransferRequestQRCode = forwardRef(
     if (memo) {
       url.searchParams.append("memo", memo);
     }
-
+    console.log(url.toString());
     return <QRCode data={url.toString()} ref={ref} {...props} />;
   },
 );

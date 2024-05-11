@@ -42,6 +42,7 @@ export type Feed = PythNetworkFeed;
 export interface Token {
   code: string;
   label: string;
+  address?: PublicKey;
   feed: Feed;
 }
 
@@ -76,6 +77,7 @@ const InitialConfigState: Config = {
     {
       code: "USDT",
       label: "Tether",
+      address: new PublicKey("Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"),
       feed: {
         type: "pyth-network",
         address: new PublicKey("3vxLXJqLqF3JG5TCbYycbKWRBbCJQLxQmBGCkyqEEefL"),
@@ -84,6 +86,7 @@ const InitialConfigState: Config = {
     {
       code: "USDC",
       label: "USD Coin",
+      address: new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"),
       feed: {
         type: "pyth-network",
         address: new PublicKey("Gnt27xtC473ZT2Mw5u8wZ68Z3gULkSTb5DuxJy7eJotD"),

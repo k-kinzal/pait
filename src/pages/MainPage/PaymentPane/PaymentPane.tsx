@@ -61,6 +61,7 @@ const Pane = forwardRef(
             paymentMethod={paymentMethod}
             recipient={recipient.address}
             amount={recipientAmount / (data?.price || 1)}
+            splToken={token.address}
           />
         </Content>
         <Content>

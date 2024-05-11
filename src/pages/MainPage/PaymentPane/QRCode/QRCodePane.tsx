@@ -9,11 +9,12 @@ export interface Props extends BoxProps {
   paymentMethod: PaymentMethod;
   recipient: PublicKey;
   amount?: number;
+  splToken?: PublicKey;
 }
 
 export const QRCodePane = forwardRef(
   (
-    { paymentMethod, recipient, amount, ...props }: Props,
+    { paymentMethod, recipient, amount, splToken, ...props }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ): ReactElement => {
     return (
@@ -22,6 +23,7 @@ export const QRCodePane = forwardRef(
           recipient={recipient}
           amount={amount}
           paymentMethod={paymentMethod}
+          splToken={splToken}
         />
       </Box>
     );
@@ -30,7 +32,7 @@ export const QRCodePane = forwardRef(
 
 const QRCode = forwardRef(
   (
-    { paymentMethod, recipient, amount }: Props,
+    { paymentMethod, recipient, amount, splToken }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ): ReactElement => {
     const theme = useTheme();
@@ -39,6 +41,7 @@ const QRCode = forwardRef(
         <SolanaPayTransferRequestQRCode
           recipient={recipient}
           amount={amount}
+          splToken={splToken}
           width={200}
           height={200}
           dotsOptions={{
