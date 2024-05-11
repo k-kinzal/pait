@@ -2,7 +2,7 @@ import { StoryObj } from "@storybook/react";
 import { PaymentPane } from "./PaymentPane";
 import { ConnectionProvider } from "../../../providers/ConnectionProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
-import {ConfigProvider} from "../../../providers/ConfigProvider.tsx";
+import { ConfigProvider } from "../../../providers/ConfigProvider.tsx";
 
 type Story = StoryObj<void>;
 

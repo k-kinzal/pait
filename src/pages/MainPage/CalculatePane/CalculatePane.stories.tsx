@@ -1,6 +1,6 @@
 import { StoryObj } from "@storybook/react";
 import { CalculatePane } from "./CalculatePane";
-import {ConfigProvider} from "../../../providers/ConfigProvider.tsx";
+import { ConfigProvider } from "../../../providers/ConfigProvider.tsx";
 
 type Story = StoryObj<void>;
 
@@ -12,7 +12,7 @@ export default {
 export const Default: Story = {
   args: undefined,
   render: () => (
-    <ConfigProvider >
+    <ConfigProvider>
       <CalculatePane />
     </ConfigProvider>
   ),

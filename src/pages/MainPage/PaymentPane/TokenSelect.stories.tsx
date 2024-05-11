@@ -1,6 +1,6 @@
 import { StoryObj } from "@storybook/react";
 import { TokenSelect, Props } from "./TokenSelect";
-import {PublicKey} from "@solana/web3.js";
+import { PublicKey } from "@solana/web3.js";
 
 type Story = StoryObj<Props>;
 
@@ -17,7 +17,9 @@ export const Default: Story = {
         label: "Solana",
         feed: {
           type: "pyth-network",
-          address: new PublicKey("H6ARHf6YXhGYeQfUzQNGk6rDNnLBQKrenN712K4AQJEG"),
+          address: new PublicKey(
+            "H6ARHf6YXhGYeQfUzQNGk6rDNnLBQKrenN712K4AQJEG",
+          ),
         },
       },
     ],

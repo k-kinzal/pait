@@ -1,10 +1,16 @@
-import {ForwardedRef, forwardRef, PropsWithChildren, ReactElement, useState} from "react";
+import {
+  ForwardedRef,
+  forwardRef,
+  PropsWithChildren,
+  ReactElement,
+  useState,
+} from "react";
 import { Box, Container, IconButton, IconButtonProps } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { CalculatePane } from "./CalculatePane/CalculatePane";
 import { PaymentPane } from "./PaymentPane/PaymentPane";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { BoxProps } from "@mui/material/Box/Box";;
+import { BoxProps } from "@mui/material/Box/Box";
 
 export interface Props {}
 
@@ -131,11 +137,7 @@ const LockIconButton = forwardRef(
     ref: ForwardedRef<HTMLButtonElement>,
   ): ReactElement => {
     return (
-      <IconButton
-        size="small"
-        ref={ref}
-        {...props}
-      >
+      <IconButton size="small" ref={ref} {...props}>
         <LockOpenIcon />
       </IconButton>
     );

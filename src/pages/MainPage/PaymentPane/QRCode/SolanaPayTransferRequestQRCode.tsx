@@ -28,7 +28,7 @@ export const SolanaPayTransferRequestQRCode = forwardRef(
   ): ReactElement => {
     const url = new URL(`solana://${recipient}`);
     if (amount) {
-      url.searchParams.append("amount", amount.toString());
+      url.searchParams.append("amount", amount.toFixed(9));
     }
     if (splToken) {
       url.searchParams.append("spl-token", splToken);
