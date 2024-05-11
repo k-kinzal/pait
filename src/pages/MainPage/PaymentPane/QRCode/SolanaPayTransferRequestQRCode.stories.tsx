@@ -1,7 +1,7 @@
-import { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 import {
   SolanaPayTransferRequestQRCode,
-  Props,
+  type Props,
 } from "./SolanaPayTransferRequestQRCode";
 
 type Story = StoryObj<Props>;

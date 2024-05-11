@@ -1,5 +1,5 @@
-import { StoryObj } from "@storybook/react";
-import { DetailsTable, Props } from "./DetailsTable";
+import type { StoryObj } from "@storybook/react";
+import { DetailsTable, type Props } from "./DetailsTable";
 
 type Story = StoryObj<Props>;
 

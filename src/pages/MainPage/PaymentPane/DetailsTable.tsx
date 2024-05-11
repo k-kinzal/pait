@@ -1,10 +1,10 @@
-import { ForwardedRef, forwardRef, ReactElement } from "react";
+import { type ForwardedRef, forwardRef, type ReactElement } from "react";
 import {
   Table,
   TableBody,
   TableCell,
-  TableCellProps,
-  TableProps,
+  type TableCellProps,
+  type TableProps,
   TableRow,
 } from "@mui/material";
 

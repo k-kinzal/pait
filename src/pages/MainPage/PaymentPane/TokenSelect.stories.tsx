@@ -1,5 +1,5 @@
-import { StoryObj } from "@storybook/react";
-import { TokenSelect, Props } from "./TokenSelect";
+import type { StoryObj } from "@storybook/react";
+import { TokenSelect, type Props } from "./TokenSelect";
 import { PublicKey } from "@solana/web3.js";
 
 type Story = StoryObj<Props>;

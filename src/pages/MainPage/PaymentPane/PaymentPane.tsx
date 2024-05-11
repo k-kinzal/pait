@@ -1,18 +1,18 @@
 import {
-  ForwardedRef,
+  type ForwardedRef,
   forwardRef,
-  PropsWithChildren,
-  ReactElement,
+  type PropsWithChildren,
+  type ReactElement,
   Suspense,
   useState,
 } from "react";
-import { Box, Stack, StackProps } from "@mui/material";
+import { Box, Stack, type StackProps } from "@mui/material";
 import { QRCodePane } from "./QRCode/QRCodePane";
-import { BoxProps } from "@mui/material/Box/Box";
+import type { BoxProps } from "@mui/material/Box/Box";
 import { TokenSelect } from "./TokenSelect";
 import { DetailsTable } from "./DetailsTable";
 import { ErrorBoundary } from "react-error-boundary";
-import { Token, useConfig } from "../../../providers/ConfigProvider";
+import { type Token, useConfig } from "../../../providers/ConfigProvider";
 import { usePriceQuery } from "../../../hooks/usePriceQuery";
 
 export interface Props {

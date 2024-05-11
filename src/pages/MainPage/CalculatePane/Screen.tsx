@@ -1,5 +1,5 @@
-import { ForwardedRef, forwardRef, ReactElement } from "react";
-import { Stack, StackProps, Typography } from "@mui/material";
+import { type ForwardedRef, forwardRef, type ReactElement } from "react";
+import { Stack, type StackProps, Typography } from "@mui/material";
 
 function locale_format(n: string, locales: string): string {
   const [_, decimal] = n.split(".");

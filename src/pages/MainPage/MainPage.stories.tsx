@@ -1,4 +1,4 @@
-import { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 import { MainPage } from "./MainPage";
 import { ConfigProvider } from "../../providers/ConfigProvider.tsx";
 import { QueryClient, QueryClientProvider } from "react-query";

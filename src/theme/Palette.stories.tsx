@@ -5,8 +5,8 @@ import {
   Typography,
   useTheme,
   Grid,
-  Color,
-  PaletteColor,
+  type Color,
+  type PaletteColor,
 } from "@mui/material";
 
 export default {
@@ -65,6 +65,7 @@ const Variation = ({ color }: { color: Color }) => {
     <Grid container sx={{ width: 1 }}>
       {variations.map((variation) => (
         <Grid
+          key={variation}
           item
           xs={1}
           sx={{

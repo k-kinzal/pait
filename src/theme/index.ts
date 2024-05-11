@@ -1,5 +1,5 @@
-import { PaletteMode } from "@mui/material";
-import { ThemeOptions } from "@mui/system";
+import type { PaletteMode } from "@mui/material";
+import type { ThemeOptions } from "@mui/system";
 import { themeMixin } from "./mixin";
 import { themeComponents } from "./components";
 import { themeDarkPalette, themeLightPalette } from "./palette";

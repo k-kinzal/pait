@@ -1,6 +1,6 @@
-import { ForwardedRef, forwardRef, ReactElement } from "react";
-import { Autocomplete, AutocompleteProps, TextField } from "@mui/material";
-import { Token } from "../../../providers/ConfigProvider";
+import { type ForwardedRef, forwardRef, type ReactElement } from "react";
+import { Autocomplete, type AutocompleteProps, TextField } from "@mui/material";
+import type { Token } from "../../../providers/ConfigProvider";
 
 export interface Props
   extends Omit<

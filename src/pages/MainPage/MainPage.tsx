@@ -1,16 +1,21 @@
 import {
-  ForwardedRef,
+  type ForwardedRef,
   forwardRef,
-  PropsWithChildren,
-  ReactElement,
+  type PropsWithChildren,
+  type ReactElement,
   useState,
 } from "react";
-import { Box, Container, IconButton, IconButtonProps } from "@mui/material";
+import {
+  Box,
+  Container,
+  IconButton,
+  type IconButtonProps,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { CalculatePane } from "./CalculatePane/CalculatePane";
 import { PaymentPane } from "./PaymentPane/PaymentPane";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { BoxProps } from "@mui/material/Box/Box";
+import type { BoxProps } from "@mui/material/Box/Box";
 
 export interface Props {}
 

@@ -1,13 +1,13 @@
-import QRCodeStyling, { Options } from "qr-code-styling";
+import QRCodeStyling, { type Options } from "qr-code-styling";
 import {
-  ForwardedRef,
+  type ForwardedRef,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useEffect,
   useRef,
 } from "react";
 import { Box } from "@mui/material";
-import { BoxProps } from "@mui/material/Box/Box";
+import type { BoxProps } from "@mui/material/Box/Box";
 
 export interface Props extends Omit<BoxProps, "children" | "type" | "ref"> {
   type?: Options["type"];

@@ -1,4 +1,4 @@
-import { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 import { CalculatePane } from "./CalculatePane";
 import { ConfigProvider } from "../../../providers/ConfigProvider.tsx";
 

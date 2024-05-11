@@ -1,5 +1,5 @@
-import { StoryObj } from "@storybook/react";
-import { BigKey, Props } from "./BigKey";
+import type { StoryObj } from "@storybook/react";
+import { BigKey, type Props } from "./BigKey";
 import { Box, Stack } from "@mui/material";
 import SubdirectoryArrowLeftIcon from "@mui/icons-material/SubdirectoryArrowLeft";
 

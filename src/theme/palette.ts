@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@mui/system";
+import type { ThemeOptions } from "@mui/system";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {

@@ -1,10 +1,14 @@
 import React, {
-  PropsWithChildren,
-  ReactElement,
+  type PropsWithChildren,
+  type ReactElement,
   useContext,
   useState,
 } from "react";
-import { Commitment, ConnectionConfig, PublicKey } from "@solana/web3.js";
+import {
+  type Commitment,
+  type ConnectionConfig,
+  PublicKey,
+} from "@solana/web3.js";
 
 export enum PaymentMethod {
   SolanaPayTransferRequest = 0,
