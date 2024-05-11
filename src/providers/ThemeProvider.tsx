@@ -1,7 +1,7 @@
-import { PropsWithChildren, ReactElement, useMemo } from "react";
+import { type PropsWithChildren, type ReactElement, useMemo } from "react";
 import {
   createTheme,
-  ThemeOptions,
+  type ThemeOptions,
   ThemeProvider as MuiThemeProvider,
   useMediaQuery,
 } from "@mui/material";

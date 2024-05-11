@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement } from "react";
+import type { PropsWithChildren, ReactElement } from "react";
 import { ThemeProvider } from "./ThemeProvider";
 import { ConnectionProvider } from "./ConnectionProvider";
 import { CssBaseline } from "@mui/material";

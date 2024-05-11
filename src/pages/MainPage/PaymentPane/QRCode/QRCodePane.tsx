@@ -1,8 +1,8 @@
-import { ForwardedRef, forwardRef, ReactElement } from "react";
+import { type ForwardedRef, forwardRef, type ReactElement } from "react";
 import { Box, useTheme } from "@mui/material";
 import { SolanaPayTransferRequestQRCode } from "./SolanaPayTransferRequestQRCode";
-import { BoxProps } from "@mui/material/Box/Box";
-import { PublicKey } from "@solana/web3.js";
+import type { BoxProps } from "@mui/material/Box/Box";
+import type { PublicKey } from "@solana/web3.js";
 import { PaymentMethod } from "../../../../providers/ConfigProvider";
 
 export interface Props extends BoxProps {

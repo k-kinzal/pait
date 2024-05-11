@@ -1,4 +1,4 @@
-import { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 import { PaymentPane } from "./PaymentPane";
 import { ConnectionProvider } from "../../../providers/ConnectionProvider";
 import { QueryClient, QueryClientProvider } from "react-query";

@@ -1,5 +1,5 @@
-import { StoryObj } from "@storybook/react";
-import { QRCode, Props } from "./QRCode";
+import type { StoryObj } from "@storybook/react";
+import { QRCode, type Props } from "./QRCode";
 
 type Story = StoryObj<Props>;
 

@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, ReactElement } from "react";
+import React, { type PropsWithChildren, type ReactElement } from "react";
 import {
-  Cluster,
+  type Cluster,
   clusterApiUrl,
-  Commitment,
+  type Commitment,
   Connection,
-  ConnectionConfig,
+  type ConnectionConfig,
 } from "@solana/web3.js";
 
 const ConnectionContext = React.createContext<Connection | null>(null);

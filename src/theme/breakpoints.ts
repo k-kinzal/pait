@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@mui/system";
+import type { ThemeOptions } from "@mui/system";
 
 export const themeBreakpoints: ThemeOptions["breakpoints"] = {
   values: {

@@ -1,14 +1,14 @@
 import {
-  ForwardedRef,
+  type ForwardedRef,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useState,
-  MouseEvent,
+  type MouseEvent,
 } from "react";
-import { Box, Stack, StackProps } from "@mui/material";
+import { Box, Stack, type StackProps } from "@mui/material";
 import { Screen } from "./Screen";
 import { Keypad } from "./Keypad";
-import { BoxProps } from "@mui/material/Box/Box";
+import type { BoxProps } from "@mui/material/Box/Box";
 import { useConfig } from "../../../providers/ConfigProvider";
 
 export interface Props {

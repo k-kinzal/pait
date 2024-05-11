@@ -1,6 +1,6 @@
-import { ForwardedRef, forwardRef, ReactElement } from "react";
+import { type ForwardedRef, forwardRef, type ReactElement } from "react";
 import { Button, Typography } from "@mui/material";
-import { ButtonProps } from "@mui/material/Button/Button";
+import type { ButtonProps } from "@mui/material/Button/Button";
 
 export interface Props extends ButtonProps {
   children: number | string | ReactElement;

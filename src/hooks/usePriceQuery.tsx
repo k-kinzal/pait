@@ -1,5 +1,8 @@
-import { UseQueryOptions, UseQueryResult } from "react-query/types/react/types";
-import { Feed, PythNetworkFeed } from "../providers/ConfigProvider";
+import type {
+  UseQueryOptions,
+  UseQueryResult,
+} from "react-query/types/react/types";
+import type { Feed, PythNetworkFeed } from "../providers/ConfigProvider";
 import { parsePriceData } from "@pythnetwork/client";
 import { useConnection } from "../providers/ConnectionProvider";
 import { useQuery } from "react-query";

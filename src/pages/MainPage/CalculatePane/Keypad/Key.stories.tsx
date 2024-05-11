@@ -1,5 +1,5 @@
-import { StoryObj } from "@storybook/react";
-import { Key, Props } from "./Key";
+import type { StoryObj } from "@storybook/react";
+import { Key, type Props } from "./Key";
 import { Box, Stack } from "@mui/material";
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import AddIcon from "@mui/icons-material/Add";

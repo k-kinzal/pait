@@ -1,3 +1,3 @@
-import { ThemeOptions } from "@mui/system";
+import type { ThemeOptions } from "@mui/system";
 
 export const themeZIndex: ThemeOptions["zIndex"] = {};
