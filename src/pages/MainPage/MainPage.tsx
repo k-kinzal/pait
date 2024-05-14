@@ -16,6 +16,7 @@ import { CalculatePane } from "./CalculatePane/CalculatePane";
 import { PaymentPane } from "./PaymentPane/PaymentPane";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import type { BoxProps } from "@mui/material/Box/Box";
+import { Providers } from "../../providers/Providers.tsx";
 
 export interface Props {}
 
@@ -33,14 +34,16 @@ export const MainPage = forwardRef(
     };
 
     return (
-      <Layout ref={ref}>
-        <Content header={<LockIconButton onClick={onChange} />}>
-          <CalculatePane onChangeAmount={changeAmount} />
-        </Content>
-        <Content>
-          <PaymentPane recipientAmount={amount} />
-        </Content>
-      </Layout>
+      <Providers>
+        <Layout ref={ref}>
+          <Content header={<LockIconButton onClick={onChange} />}>
+            <CalculatePane onChangeAmount={changeAmount} />
+          </Content>
+          <Content>
+            <PaymentPane recipientAmount={amount} />
+          </Content>
+        </Layout>
+      </Providers>
     );
   },
 );
