@@ -23,4 +23,4 @@ jobs:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTION.AUTO_REVIEW: true
-          CONFIG.MODEL: gpt-4-1106-preview
+          CONFIG.MODEL: gpt-4o-2024-05-13
