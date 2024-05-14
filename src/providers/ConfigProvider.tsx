@@ -4,11 +4,18 @@ import React, {
   useContext,
   useState,
 } from "react";
+import { PublicKey } from "@solana/web3.js";
 import {
-  type Commitment,
-  type ConnectionConfig,
-  PublicKey,
-} from "@solana/web3.js";
+  array,
+  coerce,
+  enum_,
+  instance,
+  literal,
+  object,
+  optional,
+  type Output,
+  string,
+} from "valibot";
 
 export enum PaymentMethod {
   SolanaPayTransferRequest = 0,
@@ -19,50 +26,51 @@ export enum LegalCurrency {
   JPY = "JPY",
 }
 
-export interface SolanaNetworkConfig {
-  type: "solana";
-  endpoint: string;
-  commitmentOrConfig?: Commitment | ConnectionConfig;
-  // paymentMethod: PayMethodConfig;
-}
+export const FeedSchema = object({
+  type: literal("pyth-network"),
+  address: coerce(
+    instance(PublicKey),
+    (input) => new PublicKey(input as string),
+  ),
+});
 
-export type NetworkConfig = SolanaNetworkConfig;
+export type Feed = Output<typeof FeedSchema>;
 
-export interface SolanaRecipient {
-  type: "solana";
-  address: PublicKey;
-  currency: LegalCurrency;
-}
+export const TokenSchema = object({
+  code: string(),
+  label: string(),
+  address: optional(
+    coerce(instance(PublicKey), (input) => new PublicKey(input as string)),
+  ),
+  feed: FeedSchema,
+});
 
-export type Recipient = SolanaRecipient;
+export type Token = Output<typeof TokenSchema>;
 
-export interface PythNetworkFeed {
-  type: "pyth-network";
-  address: PublicKey;
-}
+export const ConfigSchema = object({
+  network: object({
+    type: literal("solana"),
+    endpoint: string(),
+  }),
+  recipient: object({
+    type: literal("solana"),
+    address: coerce(
+      instance(PublicKey),
+      (input) => new PublicKey(input as string),
+    ),
+    currency: enum_(LegalCurrency),
+  }),
+  tokens: array(TokenSchema),
+  paymentMethod: enum_(PaymentMethod),
+});
 
-export type Feed = PythNetworkFeed;
+export type Config = Output<typeof ConfigSchema>;
 
-export interface Token {
-  code: string;
-  label: string;
-  address?: PublicKey;
-  feed: Feed;
-}
-
-export interface Config {
-  network: NetworkConfig;
-  recipient: Recipient;
-  tokens: Array<Token>;
-  paymentMethod: PaymentMethod;
-}
-
-const InitialConfigState: Config = {
+export const DefaultConfig: Config = {
   network: {
     type: "solana",
     endpoint:
       "https://distinguished-indulgent-cloud.solana-mainnet.quiknode.pro/0235981febe7c704853779da1951dd64811dcd0a/",
-    commitmentOrConfig: "finalized",
   },
   recipient: {
     type: "solana",
@@ -100,7 +108,7 @@ const InitialConfigState: Config = {
   paymentMethod: PaymentMethod.SolanaPayTransferRequest,
 };
 
-const ConfigStateContext = React.createContext<Config | null>(null);
+const ConfigContext = React.createContext<Config | null>(null);
 
 interface Props {
   initial?: Config;
@@ -110,16 +118,14 @@ export function ConfigProvider({
   children,
   initial,
 }: PropsWithChildren<Props>): ReactElement {
-  const [state, _] = useState<Config>(initial || InitialConfigState);
+  const [state, _] = useState<Config>(initial || DefaultConfig);
   return (
-    <ConfigStateContext.Provider value={state}>
-      {children}
-    </ConfigStateContext.Provider>
+    <ConfigContext.Provider value={state}>{children}</ConfigContext.Provider>
   );
 }
 
 export function useConfig(): Config {
-  const state = useContext(ConfigStateContext);
+  const state = useContext(ConfigContext);
   if (state === null) {
     throw new Error("Not initialised with ConfigProvider.");
   }

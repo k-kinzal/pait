@@ -2,7 +2,7 @@ import type {
   UseQueryOptions,
   UseQueryResult,
 } from "react-query/types/react/types";
-import type { Feed, PythNetworkFeed } from "../providers/ConfigProvider";
+import type { Feed } from "../providers/ConfigProvider";
 import { parsePriceData } from "@pythnetwork/client";
 import { useConnection } from "../providers/ConnectionProvider";
 import { useQuery } from "react-query";
@@ -40,10 +40,7 @@ export function usePriceQuery(
   }
 }
 
-function usePythNetworkPrice(
-  input: PythNetworkFeed,
-  options?: QueryOptions,
-): PriceOutput {
+function usePythNetworkPrice(input: Feed, options?: QueryOptions): PriceOutput {
   const connection = useConnection();
   return useQuery(
     ["prices", input],
