@@ -45,7 +45,7 @@ export const SolanaPayTransferRequestQRCode = forwardRef(
     if (memo) {
       url.searchParams.append("memo", memo);
     }
-    console.log(url.toString());
+
     return <QRCode data={url.toString()} ref={ref} {...props} />;
   },
 );
