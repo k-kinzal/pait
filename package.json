@@ -23,7 +23,7 @@
     "@pythnetwork/client": "^2.19.0",
     "@solana/spl-token": "^0.4.0",
     "@solana/web3.js": "^1.89.0",
-    "bs58": "^5.0.0",
+    "bs58": "^6.0.0",
     "qr-code-styling": "^1.6.0-rc.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
