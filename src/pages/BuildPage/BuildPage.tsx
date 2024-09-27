@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import Iframe from "react-iframe";
 import IosShareIcon from '@mui/icons-material/IosShare';
+import {BlockchainInputGroup} from "./BlockchainInputGroup.tsx";
 
 export const BuildPage = () => {
   return (
@@ -25,36 +26,7 @@ export const BuildPage = () => {
       </Box>
       <Stack direction="row" spacing={0} width={1} height={1} sx={{display: "flex", overflow: "hidden", backgroundColor: "background.alpha"}}>
         <Box sx={{width: "30%", minWidth: "200px", maxWidth: "350px", padding: "16px", overflow: "scroll"}}>
-          <Card sx={{ width: 1, borderRadius: "16px", backgroundColor: "background.default"}}>
-            <CardContent sx={{padding: "16px", backgroundColor: "rgba(25, 25, 25, 1)"}}>
-              <Stack spacing={4}>
-                <Box>
-                  <Typography variant="subtitle1">Blockchain</Typography>
-                </Box>
-                <Box>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-standard-label">Network</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-standard-label"
-                      id="demo-simple-select-standard"
-                      value={"solana"}
-                      label="Network"
-                      size="small"
-                      variant="standard"
-                      sx={{width: 1}}
-                    >
-                      <MenuItem value="solana">
-                        Solana Network
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-                <Box>
-                  <TextField label="RPC Endpoint" variant="standard" size="small" sx={{width: 1}} value="https://distinguished-indulgent-cloud.solana-mainnet.quiknode.pro/0235981febe7c704853779da1951dd64811dcd0a/" />
-                </Box>
-              </Stack>
-            </CardContent>
-          </Card>
+          <BlockchainInputGroup />
           <Card sx={{ width: 1, borderRadius: "16px", backgroundColor: "background.default", marginTop: "16px"}}>
             <CardContent sx={{padding: "16px", backgroundColor: "rgba(25, 25, 25, 1)"}}>
                 <Stack spacing={4}>
