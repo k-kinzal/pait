@@ -50,7 +50,7 @@
     "storybook": "^8.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "vite-plugin-node-polyfills": "^0.23.0"
   },
   "readme": "ERROR: No README data found!",
   "_id": "pait@0.0.0"
